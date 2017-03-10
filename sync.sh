@@ -1,14 +1,14 @@
-#!/bin/bash 
+#!/bin/bash
 # Vula course resource synchroniser
-# Version 4.3
+# Version 4.4
 # Gianluca Truda
-# 16 November 2016
+# 10 March 2017
 
-#Fill in the details below
+# Fill in the details below
 
-CSC="657cec78-8f33-43ac-8934-d28a658f08ea"
 #MAM="c2c4b7e5-d33c-4e7a-9132-0da22546ae29"
-#MCB="23746890-8099-48ea-935a-484ff9a6451b"
+CSC="e14fc7a3-60ad-4e25-aed5-56050829b418"
+MCB="af04b88e-c535-45f7-a592-eb654df0224e"
 DIR="/Users/gianlucatruda/Documents/GIANLUCA/Current/resources"
 
 #-------------------------------
@@ -19,23 +19,22 @@ NETNAME=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current
 
 function SYNC {
 
-	echo 
+	echo
 	echo $DATE
 	echo
 	echo Mounting Drives…
-	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$CSC'" '
 	#osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MAM'" '
-	#osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MCB'" '
+	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$CSC'" '
+	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MCB'" '
 	cd /Users/gianlucatruda/Desktop
 	echo Synchronising…
-	rsync -avzh --progress //Volumes/$CSC/* $DIR/csc2002
 	#rsync -avzh --progress //Volumes/$MAM/* $DIR/mam1005
-	#rsync -avzh --progress //Volumes/$MCB/* $DIR/mcb2023
+	rsync -avzh --progress //Volumes/$CSC/* $DIR/csc2002
+	rsync -avzh --progress //Volumes/$MCB/* $DIR/mcb2023
 	echo Unmounting Drives…
-	umount /Volumes/$CSC
 	#umount /Volumes/$MAM
-	#umount /Volumes/$MCB
-
+	umount /Volumes/$CSC
+	umount /Volumes/$MCB
 
 	echo Sync Complete on $DATE
 	echo
@@ -47,7 +46,7 @@ function SYNC {
 function CHECK {
 	wget -q --spider http://google.com
 
-	if [ “$?” == “0” ] 
+	if [ “$?” == “0” ]
 	then
 		echo
 		echo Active network — $NETNAME
@@ -55,7 +54,7 @@ function CHECK {
 	elif [ “$?” != “0” ]
 	then
 		echo
-		if [ $TIMEOUTCOUNT -lt 5 ] 
+		if [ $TIMEOUTCOUNT -lt 5 ]
 		then
 			((TIMEOUTCOUNT+=1))
 			sleep 60
