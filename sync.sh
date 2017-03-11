@@ -6,7 +6,7 @@
 
 # Fill in the details below
 
-#MAM="c2c4b7e5-d33c-4e7a-9132-0da22546ae29"
+MAM="c48efc4a8-7cd8-4897-a873-227f1681d91e"
 CSC="e14fc7a3-60ad-4e25-aed5-56050829b418"
 MCB="af04b88e-c535-45f7-a592-eb654df0224e"
 DIR="/Users/gianlucatruda/Documents/GIANLUCA/Current/resources"
@@ -23,16 +23,16 @@ function SYNC {
 	echo $DATE
 	echo
 	echo Mounting Drives…
-	#osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MAM'" '
+	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MAM'" '
 	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$CSC'" '
 	osascript -e ' mount volume "https://vula.uct.ac.za/dav/'$MCB'" '
 	cd /Users/gianlucatruda/Desktop
 	echo Synchronising…
-	#rsync -avzh --progress //Volumes/$MAM/* $DIR/mam1005
+	rsync -avzh --progress //Volumes/$MAM/* $DIR/mam1005
 	rsync -avzh --progress //Volumes/$CSC/* $DIR/csc2002
 	rsync -avzh --progress //Volumes/$MCB/* $DIR/mcb2023
 	echo Unmounting Drives…
-	#umount /Volumes/$MAM
+	umount /Volumes/$MAM
 	umount /Volumes/$CSC
 	umount /Volumes/$MCB
 
