@@ -1,8 +1,8 @@
 #!/bin/bash
 # Vula course resource synchroniser
-# Version 4.4
+# Version 4.5
 # Gianluca Truda
-# 10 March 2017
+# 29 May 2017
 
 # Fill in the details below
 
@@ -18,7 +18,7 @@ TIMEOUTCOUNT=0
 NETNAME=`/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | awk '/ SSID/ {print substr($0, index($0, $2))}'`
 
 function SYNC {
-
+	clear
 	echo
 	echo $DATE
 	echo
