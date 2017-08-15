@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 # Vula course resource synchroniser
-# Version 4.5
+# Version 5.0
 # Gianluca Truda
-# 29 May 2017
+# 14 August 2017
 
 # Fill in the details below
 
 MAM="48efc4a8-7cd8-4897-a873-227f1681d91e"
-CSC="e14fc7a3-60ad-4e25-aed5-56050829b418"
-MCB="af04b88e-c535-45f7-a592-eb654df0224e"
+CSC="36d78fc9-75b1-4f6c-a810-e71ed865d415"
+MCB="cf74494c-7c8c-4bfe-bd61-87b04a8ed405"
 DIR="/Users/gianlucatruda/Documents/GIANLUCA/Current/resources"
 
 #-------------------------------
